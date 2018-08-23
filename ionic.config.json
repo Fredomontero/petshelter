@@ -1,0 +1,8 @@
+{
+  "name": "petshelter",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "app_id": ""
+}
