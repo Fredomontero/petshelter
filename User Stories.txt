@@ -1,0 +1,42 @@
+User stories for PetShelter
+content between "()" has to be discussed
+
+1.- As a product owner i want the users to be of different types so that they can have different permissions: 
+User types:
+Users
+Administrators
+Veterinarians
+(Dog Pound)
+
+2.- As a user i want to sign in on the Application so that i can use it:
+Sign in User information:
+Name
+E-Mail
+Password
+User type. Except Administrators
+ 
+3.- As a product owner i want the user to confirm a email confirmation so that the register process can be accomplished. 
+(When the users finished "User Story 2", a confirmation email will be sent to the "user email"). 
+
+3.- As a product owner i want to verify that the veterinarians have paid (“$xx.xx per "year/month")  
+so that they can have access to the "veterinarians functions/services". 
+
+4.- As a user i want to log in with my facebook/google account or use my email and password.
+
+5.- As a user i want to generate reports so that other users can see them. 
+Report types:
+Homeless/Street
+In adoption.
+Lost. 
+(Animal abuse)
+(Specify information of the reports)
+
+6.- As a Veterinarian i want to set my Veterinary information so that users can see it. 
+Veterinary information:
+Veterinary Name.
+Services. (Specify Services information)
+Schedule. (Per day)
+Phone.
+Location.
+
+7.- As a Veterinarian i want to update my Veterinary information so that i can change my information.
