@@ -12,15 +12,20 @@ import { LoginPage } from '../pages/login/login';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+
+//Other stuff
+import { Facebook } from '@ionic-native/facebook';
 
 //Firebase credentials
 var config = {
-  apiKey: "AIzaSyB-3RiHGh5jJ7lOQtRJAHTKL2x_sj4h3Es",
-  authDomain: "petshelter-71412.firebaseapp.com",
-  databaseURL: "https://petshelter-71412.firebaseio.com",
-  projectId: "petshelter-71412",
-  storageBucket: "petshelter-71412.appspot.com",
-  messagingSenderId: "26288344716"
+  apiKey: "AIzaSyBV8_YK5opJ_eHlM1LmumvIni44V7_mN2s",
+  authDomain: "petshelter-ee05b.firebaseapp.com",
+  databaseURL: "https://petshelter-ee05b.firebaseio.com",
+  projectId: "petshelter-ee05b",
+  storageBucket: "petshelter-ee05b.appspot.com",
+  messagingSenderId: "947877028095"
 };
 
 @NgModule({
@@ -33,7 +38,8 @@ var config = {
     BrowserModule,
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,7 +52,8 @@ var config = {
     SplashScreen,
     AngularFireDatabase,
     AngularFireAuth,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Facebook
   ]
 })
 export class AppModule {}
