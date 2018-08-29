@@ -20,7 +20,7 @@
     <br>
     <!-- This is for the user type -->
     <ion-item class="input_field">
-      <ion-label>USER TYPE</ion-label>
+      <ion-label class="modal_alert">USER TYPE</ion-label>
       <ion-select [(ngModel)]="type" (ionChange)="getType(type);">
         <ion-option value="0">REGULAR</ion-option>
         <ion-option value="1">ADMINISTRATOR</ion-option>
@@ -40,6 +40,6 @@
   </ion-list>
 
   <div padding>
-    <button block ion-button color="danger" (click)="signIn()">Sign In</button>
+    <button block ion-button color="rose" (click)="signIn()">Sign In</button>
   </div>
 </ion-content>
