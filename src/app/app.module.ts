@@ -18,14 +18,18 @@ import * as firebase from 'firebase/app';
 //Other stuff
 import { Facebook } from '@ionic-native/facebook';
 
+//environment variables
+
+import { ENV } from '@app/env';
+
 //Firebase credentials
 var config = {
-  apiKey: "AIzaSyBV8_YK5opJ_eHlM1LmumvIni44V7_mN2s",
-  authDomain: "petshelter-ee05b.firebaseapp.com",
-  databaseURL: "https://petshelter-ee05b.firebaseio.com",
-  projectId: "petshelter-ee05b",
-  storageBucket: "petshelter-ee05b.appspot.com",
-  messagingSenderId: "947877028095"
+  apiKey: ENV.API_KEY,
+  authDomain: ENV.AUTH_DOMAIN,
+  databaseURL: ENV.DB_URL,
+  projectId: ENV.PROJECT_ID,
+  storageBucket: ENV.STORAGE_BUCKET,
+  messagingSenderId: ENV.MESSAGING_SENDER_ID
 };
 
 @NgModule({

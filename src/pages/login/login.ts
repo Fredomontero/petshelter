@@ -6,7 +6,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-
 //This are the pages required
 import { SigninPage } from '../signin/signin';
 
