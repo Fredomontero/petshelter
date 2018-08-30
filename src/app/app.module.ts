@@ -18,12 +18,10 @@ import * as firebase from 'firebase/app';
 //Other stuff
 import { Facebook } from '@ionic-native/facebook';
 
-//environment variables
-
+//Environment variables
 import { ENV } from '@app/env';
 
-//Firebase credentials
-var config = {
+var config = { 
   apiKey: ENV.API_KEY,
   authDomain: ENV.AUTH_DOMAIN,
   databaseURL: ENV.DB_URL,
