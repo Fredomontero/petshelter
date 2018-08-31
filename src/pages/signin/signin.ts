@@ -5,6 +5,11 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
+//My pages
+import { AdminhomePage } from '../adminhome/adminhome';
+import { GeneralhomePage } from '../generalhome/generalhome';
+import { VethomePage } from '../vethome/vethome';
+
 
 @IonicPage()
 @Component({
@@ -39,17 +44,14 @@ export class SigninPage {
     if(error == 0){
       this.auth.auth.createUserWithEmailAndPassword(this.email.value, this.password1.value)
       .then( data => {
-        console.log("Dentro del then: ",error);
         //If the registration it's ok then sign in and insert user info into the db
         let id = this.auth.auth.currentUser.uid;
         this.db.object('/users/'+id+'/').set(this.user);
         this.auth.auth.signInWithEmailAndPassword(this.email.value, this.password1.value)
         .then( data => {
-          console.log("Dentro del segundo then: ",error);
-          console.log("Ya estas logeado: ", data);
-          console.log(this.user);
+          console.log(this.user.type);
           this.displayStatus(error);
-          // this.navCtrl.push(WalkthroughPage);
+          this.redirectTo(this.user.type);
         });
       })
       .catch(error => {
@@ -96,6 +98,17 @@ export class SigninPage {
     });
   
     toast.present();
+  }
+  
+  //Function for redirecting to a page
+  redirectTo(type){
+    if(type == 0){
+      this.navCtrl.push(GeneralhomePage);
+    }else if (type == 1){
+      this.navCtrl.push(AdminhomePage);
+    }else{
+      this.navCtrl.push(VethomePage);
+    }
   }
 
 }

@@ -7,6 +7,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { SigninPage } from '../pages/signin/signin';
 import { LoginPage } from '../pages/login/login';
+import { AdminhomePage } from '../pages/adminhome/adminhome';
+import { GeneralhomePage } from '../pages/generalhome/generalhome';
+import { VethomePage } from '../pages/vethome/vethome';
 
 //Firebase imports
 import { AngularFireModule } from 'angularfire2';
@@ -34,7 +37,10 @@ var config = {
   declarations: [
     MyApp,
     LoginPage,
-    SigninPage
+    SigninPage,
+    AdminhomePage,
+    GeneralhomePage,
+    VethomePage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,10 @@ var config = {
   entryComponents: [
     MyApp,
     LoginPage,
-    SigninPage
+    SigninPage,
+    AdminhomePage,
+    GeneralhomePage,
+    VethomePage
   ],
   providers: [
     StatusBar,
