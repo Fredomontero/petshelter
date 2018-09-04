@@ -8,6 +8,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 //This are the pages required
 import { SigninPage } from '../signin/signin';
+import { FacebookregPage } from '../facebookreg/facebookreg';
 
 @IonicPage()
 @Component({
@@ -35,12 +36,19 @@ export class LoginPage {
   loginfb(){
     this.auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
     .then(res => {
-      console.log(res);
+      console.log(res.user);
+      this.navCtrl.push(FacebookregPage,{
+        image: res.user.photoURL,
+        fullname: res.user.displayName,
+        email: res.user.email,
+        uid: res.user.uid
+      });  
     })
   }
 
   signup(){
     this.navCtrl.push(SigninPage);
   }
+
 
 }

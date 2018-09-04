@@ -1,0 +1,37 @@
+<ion-content padding>
+  <div class="facebook-title">
+    <h2>Complete you registration</h2>
+  </div>
+  <br><br>
+  <div class="profile-picture">
+    <img src="{{ imageUrl }}" class="user-picture">
+    <h5 class="user-name" >{{ this.user.name }}</h5>
+  </div>
+  
+  <ion-list>
+    <!-- This is for the user type -->
+    <ion-item class="input_field-facebook">
+      <ion-label class="modal_alert">USER TYPE</ion-label>
+      <ion-select [(ngModel)]="type" (ionChange)="getType(type);">
+        <ion-option value="0">REGULAR</ion-option>
+        <ion-option value="1">ADMINISTRATOR</ion-option>
+        <ion-option value="2">VETERINARIAN</ion-option>
+      </ion-select>
+    </ion-item>
+    <!-- This is for the password -->
+    <ion-item class="input_field-facebook">
+      <ion-label floating>PASSWORD</ion-label>
+      <ion-input type="password" #password1 ></ion-input>
+    </ion-item>
+     <!-- This is for retype password -->
+     <ion-item class="input_field-facebook">
+        <ion-label floating>RETYPE PASSWORD</ion-label>
+        <ion-input type="password" #password2 ></ion-input>
+      </ion-item>
+  </ion-list>
+
+  <div padding>
+    <button block ion-button color="rose" (click)="completeRegistration()">Done</button>
+  </div>
+
+</ion-content>

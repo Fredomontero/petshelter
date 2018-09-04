@@ -10,6 +10,7 @@ import { LoginPage } from '../pages/login/login';
 import { AdminhomePage } from '../pages/adminhome/adminhome';
 import { GeneralhomePage } from '../pages/generalhome/generalhome';
 import { VethomePage } from '../pages/vethome/vethome';
+import { FacebookregPage } from '../pages/facebookreg/facebookreg';
 
 //Firebase imports
 import { AngularFireModule } from 'angularfire2';
@@ -40,7 +41,8 @@ var config = {
     SigninPage,
     AdminhomePage,
     GeneralhomePage,
-    VethomePage
+    VethomePage,
+    FacebookregPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ var config = {
     SigninPage,
     AdminhomePage,
     GeneralhomePage,
-    VethomePage
+    VethomePage,
+    FacebookregPage
   ],
   providers: [
     StatusBar,
