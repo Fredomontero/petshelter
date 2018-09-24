@@ -1,11 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 
 //Firebase
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 //My pages
+import { LoginPage } from "../login/login"
 import { AdminhomePage } from '../adminhome/adminhome';
 import { GeneralhomePage } from '../generalhome/generalhome';
 import { VethomePage } from '../vethome/vethome';
@@ -25,12 +26,13 @@ export class SigninPage {
   @ViewChild('password2') password2;
   user_type;
 
+
   //Litheral object constructor
   user = {name : '', email : '', type : 0};
 
   status_messages: string[] = ["Successfully registered user","The name field is required", "The email field is required", "Password don't match", "There was a problem with the server"];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AngularFireAuth, private db: AngularFireDatabase, private toast: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AngularFireAuth, private db: AngularFireDatabase, private toast: ToastController, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -47,12 +49,8 @@ export class SigninPage {
         //If the registration it's ok then sign in and insert user info into the db
         let id = this.auth.auth.currentUser.uid;
         this.db.object('/users/'+id+'/').set(this.user);
-        this.auth.auth.signInWithEmailAndPassword(this.email.value, this.password1.value)
-        .then( data => {
-          console.log(this.user.type);
-          this.displayStatus(error);
-          this.redirectTo(this.user.type);
-        });
+        this.sendEmailVerification(this.auth.auth.currentUser);
+        this.navCtrl.push(LoginPage);
       })
       .catch(error => {
         error = 4;
@@ -95,20 +93,22 @@ export class SigninPage {
       duration: 1500,
       position: 'bottom',
       cssClass: "toast_style"
-    });
-  
+    }); 
     toast.present();
   }
   
-  //Function for redirecting to a page
-  redirectTo(type){
-    if(type == 0){
-      this.navCtrl.push(GeneralhomePage);
-    }else if (type == 1){
-      this.navCtrl.push(AdminhomePage);
-    }else{
-      this.navCtrl.push(VethomePage);
-    }
+  sendEmailVerification(user){
+    console.log(user);
+    user.sendEmailVerification();
+    this.presentAlert();
   }
 
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Confirmation Email',
+      subTitle: 'We send you an email, please confirm it',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
 }
