@@ -13,6 +13,9 @@ import { AdminhomePage } from '../adminhome/adminhome';
 import { GeneralhomePage } from '../generalhome/generalhome';
 import { VethomePage } from '../vethome/vethome';
 
+//Json reader
+import { JsonReader } from '../../providers/jsonreader';
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -23,14 +26,26 @@ export class LoginPage {
   //Variables to get the value of the inputs
   @ViewChild('email') email;
   @ViewChild('password') password;
+
+  //keys from json language file 
+  wordsKeys = [];
    
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AngularFireAuth, private db: AngularFireDatabase, public alertCtrl: AlertController) {
+  constructor(private jsonReader: JsonReader,public navCtrl: NavController, public navParams: NavParams, private auth: AngularFireAuth, private db: AngularFireDatabase, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    //read json file
+    this.jsonReader.getJSONDataAsync("./assets/languages/en.json").then(data => {
+      this.setQueryOptionsData(data);
+    });
+  }
+
+  //store values from json language files into "wordskeys", access to value "this.wordsKeys['KEY']"
+  setQueryOptionsData(data : any){
+    this.wordsKeys = data;
   }
 
   login(){
@@ -92,18 +107,18 @@ export class LoginPage {
   //Alert
   presentConfirm(user) {
     let alert = this.alertCtrl.create({
-      title: 'Please validate your email',
-      message: 'Re-send Confirmation Email?',
+      title: this.wordsKeys['PLEASE VALIDATE YOUR EMAIL'],
+      message: this.wordsKeys['SEND CONFIRMATION EMAIL'],
       buttons: [
         {
-          text: 'Cancel',
+          text: this.wordsKeys['CANCEL'],
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
           }
         },
         {
-          text: 'Ok',
+          text: this.wordsKeys['OK'],
           handler: () => {
             console.log('Re-send Email');
             this.sendEmailVerification(user);

@@ -19,8 +19,14 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
-//Other stuff
+//FaceBook
 import { Facebook } from '@ionic-native/facebook';
+
+
+//Read JSON Language files
+import { HttpModule } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http'
+import { JsonReader } from '../providers/jsonreader';
 
 //Environment variables
 import { ENV } from '@app/env';
@@ -49,7 +55,9 @@ var config = {
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
     IonicModule.forRoot(MyApp),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,7 +75,10 @@ var config = {
     AngularFireDatabase,
     AngularFireAuth,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Facebook
+    Facebook,
+    JsonReader
   ]
 })
-export class AppModule {}
+
+export class AppModule {
+}

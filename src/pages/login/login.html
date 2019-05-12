@@ -5,19 +5,19 @@
     <br><br><br><br>
     <!-- This is fot the email -->
     <ion-item class="input_field">
-      <ion-label floating>EMAIL</ion-label>
+      <ion-label floating>{{wordsKeys['EMAIL']}}</ion-label>
       <ion-input type="text" #email></ion-input>
     </ion-item>
     <!-- This is for the password -->
     <ion-item class="input_field">
-      <ion-label floating>PASSWORD</ion-label>
+      <ion-label floating>{{wordsKeys['PASSWORD']}}</ion-label>
       <ion-input type="password" #password ></ion-input>
     </ion-item>
   </ion-list>
   
     <div padding>
-      <button block ion-button color="secondary" (click)="login()">Login</button>
-      <button block ion-button color="danger" (click)="signup()">Sign Up</button>
-      <button block ion-button color="facebook" (click)="loginfb()">Login with Facebook</button>
+      <button block ion-button color="secondary" (click)="login()">{{wordsKeys['LOGIN']}}</button>
+      <button block ion-button color="danger" (click)="signup()">{{wordsKeys['SIGN UP']}}</button>
+      <button block ion-button color="facebook" (click)="loginfb()">{{wordsKeys['LOGIN WITH FACEBOOK']}}</button>
     </div>
   </ion-content>

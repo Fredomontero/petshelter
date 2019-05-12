@@ -2,10 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\environments",
     "\\src\\pages",
-    "\\src\\pages\\login",
-    "\\src\\pages\\signin"
+    "\\src\\providers"
   ],
-  "SelectedNode": "\\src\\pages\\signin\\signin.ts",
+  "SelectedNode": "\\resources",
   "PreviewInSolutionExplorer": false
 }
